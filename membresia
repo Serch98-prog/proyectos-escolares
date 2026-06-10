@@ -1,0 +1,28 @@
+#programa 3D. Membersia club deportivo
+#nombre: sergio arredondo ibarra
+#Matrícula: AL07288024
+#fecha: 09 de junio de 2026
+#descripcion:este programa pide nombre, precio de membresia, tipo de membresia y calcula descuentos a los mismos
+
+print("------------------BIENVENIDO AL SISTEMA DE MEMBRESIAS CLUB DEPORTIVO 360 SPORTS-------------------")
+print("-------------ELABORADO POR SERGIO ARREDONDO-------------")
+
+#entrada de datos
+nombre_socio= input("ingresa el nombre del socio: ")
+precio_membresia= float(input("ingresa el precio de la membresia: "))
+print("tipos de membresia: 1 (estandar), 2 (premiun)")
+tipo_membresia= int(input("ingresa el tipo de membresia: "))
+
+#aplicacion del descuento segun tipo de cliente
+descuento=0
+if tipo_membresia==1:
+    descuento=0
+elif tipo_membresia==2:
+    descuento=0.1
+    precio_membresia=precio_membresia-(precio_membresia*descuento)
+
+#mostrar resultados
+print("nombre de socio:", nombre_socio)
+print("precio base:", precio_membresia)
+print("descuento:", descuento*100, "%")
+print("precio final:", precio_membresia)
