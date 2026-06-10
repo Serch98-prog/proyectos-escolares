@@ -1,0 +1,32 @@
+#programa 3c. Taquilla simple
+#nombre: sergio arredondo ibarra
+#Matrícula: AL07288024
+#fecha: 09 de junio de 2026
+#descripcion: este programa funciona como taquilla simple y aplica un descuento despues de pedir, pelicula. precio, cantidad.
+
+print("=========BIENVENIDO AL SISTEMA SIMPLE CINES WOW==========")
+print("----------elaborado por sergio arredondo ibarra----------")
+
+#entrada de datos
+pelicula= input("ingresa el nombre de la pelicula: ")
+precio= float(input("ingresa el precio de la pelicula: "))
+cantidad= int(input("ingresa la cantidad de entradas: "))
+
+#proceso de datos
+subtotal= precio*cantidad           #definicion del subtotal
+
+#descuento
+descuento=0                         #aqui se inicializa la variable descuento en (0)
+if cantidad>=4:                     #este es un condicional de cantidad si es mayor que 4 boletos
+    descuento=subtotal*0.10         #aqui se hace un descuento del 10%
+
+#aplicacion de descuento
+total=subtotal-descuento
+
+#mostrar resultados
+print("pelicula: ", pelicula)
+print("precio: ", precio)
+print("cantidad: ", cantidad)
+print("subtotal: ", subtotal)
+print("descuento: ", descuento)
+print("total: ", total)
