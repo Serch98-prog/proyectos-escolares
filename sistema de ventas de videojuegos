@@ -1,0 +1,34 @@
+#programa 3b. sistema de ventas de vieojuegos
+#nombre: sergio arredondo ibarra
+#Matrícula: AL07288024
+#fecha: 09 de junio de 2026
+#descripcion: sistema simple que pide nombre de juego, precio, cantidad, aplica iva y determina total de venta
+
+print("---------------------Bienvenido al sistema de videojuegos----------------------")
+print("--------------elaborado por sergio arredondo-------------------------")
+
+#entrada de datos
+nombre= input("ingresa el nombre del videojuego:  ")                #si son textos no solo se pone input
+precio= float(input("ingresa el precio del videojuego:  "))         #flotante son numeros decimales
+cantidad= int(input("ingresa la cantidad de videojuegos:  "))       #entero o int son numeros enteros
+iva= 0.16
+
+#operaciones
+subtotal= precio*cantidad
+impuesto= subtotal*iva
+total= subtotal+impuesto
+
+#salida de datos
+print("resumen de venta")
+print("nombre del videojuego:")
+print(nombre)
+print("precio del videojuego:")
+print(precio)
+print("cantidad de videojuegos:")
+print(cantidad)
+print("subtotal:")
+print(subtotal)
+print("impuesto:")
+print(impuesto)
+print("total:")
+print(total)
