@@ -30,7 +30,8 @@ Gestiona la venta de boletos aplicando promociones según la cantidad adquirida.
 
 ## Tecnologías
 
-- Python
+- Python 3
+- GitHub
 
 ## Autor
 
