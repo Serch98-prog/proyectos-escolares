@@ -1,0 +1,38 @@
+#Programa 4. calculadora con menu
+#nombre: sergio arredondo ibarra
+#11 junio 2026
+#descripcion: este programa realiza calculos y operaciones basicas a partir de un menu con condicionales
+
+print("------------------bienvenido----------------------")
+print("-----------------elaborado por sergio arredondo------------------")
+
+#entrada de datos
+num1=int(input("ingrese el primer numero: "))
+num2=int(input("ingrese el segundo numero: "))
+print("los numeros que ingresaste son: ",num1,"y",num2)
+
+#menu de opciones condicionales
+print("selecione la operacion que desea realizar: ")
+print("1.suma")
+print("2.resta")
+print("3.multiplicacion")
+print("4.division")
+print("5.potencia")
+print("6.modulo")
+opcion=int(input("ingrese la opcion: "))   #opcion es el numero que le vamos a dar al sistema
+
+
+if opcion==1:
+    print("la suma de los numeros es: ",num1+num2)
+elif opcion==2:
+    print("la resta de los numeros es: ",num1-num2)
+elif opcion==3:
+    print("la multiplicacion de los numeros es: ",num1*num2)
+elif opcion==4:
+    print("la division de los numeros es: ",num1/num2)
+elif opcion==5:
+    print("la potencia de los numeros es: ",num1**num2)
+elif opcion==6:
+    print("el modulo de los numeros es: ",num1%num2)
+else:
+    print("opcion invalida")
