@@ -1,0 +1,20 @@
+#programa 5. el numero mas grande
+#autor: sergio arredondo ibarra
+#fecha: 11 junio 2026
+#descripcion: este programa pide tres numeros y determina el numero mas grande de esos 3
+
+print("--------------------condicionales---------------------")
+print("----------------elaborado por sergio arredondo ibarra--------------")
+
+#entrada de datos
+num1 = input("ingresa primer numero: ")
+num2 = input("ingresa segundo numero: ")
+num3 = input("ingresa tercer numero: ")
+
+#condicionales de decision para determinar el numero mayor
+if num1 > num2 and num1 > num3:
+    print("el numero mayor es: ", num1)
+elif num2 > num1 and num2 > num3:
+    print("el numero mayor es: ", num2)
+else
+    print("el numero mayor es: ", num3)
