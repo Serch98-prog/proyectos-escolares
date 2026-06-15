@@ -13,6 +13,12 @@ Este repositorio contiene proyectos desarrollados durante mi formación en Ingen
 - Entrada y salida de datos
 - Operadores matemáticos
 - Validación básica de datos
+- Funciones (def)
+- Listas
+- Diccionarios
+- Bucles (for y while)
+- Manejo de archivos TXT
+- Manejo básico de excepciones (try/except)
 
 ## Proyectos
 
@@ -27,6 +33,14 @@ Calcula compras, descuentos y totales de venta.
 
 ### Taquilla simple
 Gestiona la venta de boletos aplicando promociones según la cantidad adquirida.
+
+### Calculadora con menú
+
+Realiza operaciones matemáticas mediante un menú interactivo que permite al usuario seleccionar la operación deseada.
+
+### Número más grande
+
+Compara varios números ingresados por el usuario y determina cuál es el mayor utilizando estructuras condicionales.
 
 ## Tecnologías
 
