@@ -1,0 +1,79 @@
+Actividad 4c. directorio telefonico (diccionarios sin comentarios)
+#Sergio Arredondo Ibarra
+#fecha: 03 de julio 2026
+#descripcion: Este programa utiliza diccionarios para gestionar una de actividad.
+
+#programa principal inicia
+agenda = {
+    "Carlos mendoza": {"correo": "carlos.m@mail.com", "tel": "5512345678", "nacimiento": "14/03/1995"},
+    "Ana Rodriguez": {"correo": "ana.rod@mail.com", "tel": "8115678901", "nacimiento": "22/07/1998"},
+    "luis fuentes": {"correo": "luis.f@mail.com", "tel": "3323456789", "nacimiento": "05/11/1992"},
+    "Sofia Hernandez": {"correo": "sofia.h@mail.com", "tel": "9519876543", "nacimiento": "30/01/2000"},
+    "Diego Gomez": {"correo": "diego.g@mail.com", "tel": "2224567890", "nacimiento": "18/05/1994"},
+    "Maria Elena Lopez": {"correo": "maria.l@mail.com", "tel": "4423124567", "nacimiento": "12/09/1987"},
+    "Andres Villanueva": {"correo": "andres.v@mail.com", "tel": "6647890123", "nacimiento": "25/12/2001"},
+    "Lucia Morales": {"correo": "lucia.m@mail.com", "tel": "7776543210", "nacimiento": "08/04/1996"}
+}
+
+print("📖 SIMULADOR DE AGENDA / DIRECTORIO TELEFÓNICO")
+print("------------------MENÚ DE OPCIONES------------------")
+print("0. Mostrar todos los nombres del directorio (.keys)")
+print("1. Ver los datos completos de todos los contactos (.values)")
+print("2. Buscar y extraer un contacto de forma segura (.get)")
+print("3. Agregar o actualizar un contacto de golpe (.update)")
+print("4. Eliminar el último contacto registrado (.popitem)")
+print("5. Borrar un contacto específico por su nombre (.pop)")
+print("6. Vaciar por completo la agenda (.clear)")
+print("7. Enlistar todo el directorio formateado (.items)")
+
+continuar = True
+while continuar:
+    opcion =int (input("\nElija una opción (0-7): "))
+    if opcion == 0:
+        print("\nLos nombres de los contactos son:")
+        for nombre in agenda.keys():
+            print(nombre)
+    elif opcion == 1:
+        print("\nLos datos completos de los contactos son:")
+        for datos in agenda.values():
+            print(datos)
+    elif opcion == 2:
+        nombre = input("\n==========>Ingrese el nombre del contacto a buscar: ")
+        datos = agenda.get(nombre)
+        print("datos del contacto:")
+        print(datos)
+    if opcion == 3:
+        nombre = input("\nIngrese el nombre del contacto a agregar o actualizar: ")
+        correo = input("Ingrese el correo electrónico: ")
+        tel = input("Ingrese el número de teléfono: ")
+        nacimiento = input("Ingrese la fecha de nacimiento: ")
+        datos = {"correo": correo, "tel": tel, "nacimiento": nacimiento}
+        agenda.update({nombre: datos})
+        print("El contacto ha sido agregado o actualizado correctamente.")
+        print(datos)
+    if opcion == 4:
+        nombre, datos = agenda.popitem()
+        print("El último contacto ha sido eliminado.")
+        print("Nombre:", nombre)
+        print("Datos:", datos)
+    if opcion == 5:
+        nombre = input("\nIngrese el nombre del contacto a eliminar: ")
+        datos = agenda.pop(nombre, "contacto no encontrado")
+        if datos != "contacto no encontrado":
+            print("El contacto ha sido eliminado correctamente.")
+            print("Nombre:", nombre)
+    if opcion == 6:
+        agenda.clear()
+        print("La agenda ha sido vaciada correctamente.")
+    if opcion == 7:
+        print("\nLos contactos en la agenda son:")
+        for nombre, datos in agenda.items():
+            print("Nombre:", nombre)
+            print("Datos:", datos)
+
+    else:
+        print("Opción no válida. Por favor, elija una opción válida.")
+    respuesta = input("\n¿Desea continuar? (si/no): ")
+    if respuesta.lower() == "no":
+        continuar = False
+
