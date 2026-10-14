@@ -1,0 +1,70 @@
+#Actividad 4b. Coctel de frutas (tuplas)
+
+#Programa principal inicia
+
+# Se crea una tupla con las frutas que forman el coctel.
+coctel_de_frutas = ("Manzana", "Plátano", "Fresa", "Melón", "Uva", "Manzana" )
+
+# Se crea una variable de control para mantener el programa en ejecución.
+continuar = True
+
+# Se muestra el título y las opciones del menú al usuario.
+print("SIMULADOR DE COCTEL DE FRUTAS (OPERACIONES PURAS DE TUPLAS)")
+print("------------------MENÚ FRUTAL------------------")
+print("¿Qué deseas hacer con el menú frutal?")
+print("0. Imprimir el menú frutal")
+print("1. Saber cuántas frutas tiene el coctel (len)")
+print("2. Buscar en qué posición está una fruta (.index)")
+print("3. Contar cuántas veces aparece una fruta (.count)")
+print("4. Comprobar si una fruta existe en el coctel (in)")
+print("5. Vaciar el coctel de frutas (Asignar tupla vacía)")
+
+# Se inicia un ciclo que se repetirá mientras el usuario desee continuar.
+while continuar:
+
+    # Se solicita al usuario la opción que desea ejecutar del menú.
+    opcion = int(input("\nElige una opción: "))
+
+    if opcion==0:
+        print("El menú frutal es: ", coctel_de_frutas)
+    elif opcion==1:
+        print("El coctel tiene", len(coctel_de_frutas), "frutas")
+
+    # Se busca la posición de una fruta dentro de la tupla.
+    elif opcion==2:
+        fruta = input("¿Qué fruta deseas buscar?: ")
+        if fruta in coctel_de_frutas:
+            print(fruta, "está en la posición", coctel_de_frutas.index(fruta))
+        else:
+            print("No se encuentra en el menú frutal")
+
+    # Se cuenta cuántas veces aparece una fruta en la tupla.
+    elif opcion==3:
+        fruta = input("¿Qué fruta deseas contar?: ")
+        if fruta in coctel_de_frutas:
+            print(fruta, "aparece", coctel_de_frutas.count(fruta), "veces")
+        else:
+            print("No se encuentra en el menú frutal")
+
+    # Se verifica si la fruta ingresada existe dentro del coctel.
+    elif opcion==4:
+        fruta = input("¿Qué fruta deseas buscar?: ")
+        if fruta in coctel_de_frutas:
+            print("Sí, está en el menú frutal")
+        else:
+            print("No está en el menú frutal")
+
+    # Se vacía la tupla asignándole una tupla vacía.
+    elif opcion==5:
+        coctel_de_frutas = ()
+        print("El coctel está vacío")
+    else:
+        print("Opción inválida")
+
+    # Se pregunta al usuario si desea continuar utilizando el programa.
+    respuesta = input("\n¿Quieres continuar? (si/no): ")
+    if respuesta.lower() != "si":
+       continuar = False
+    print("El coctel de frutas es: ", coctel_de_frutas)
+
+#Programa principal finaliza
