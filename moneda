@@ -1,0 +1,52 @@
+#Actividad 4E.
+#autor: Sergio Arredondo Ibarra
+#Fecha: 07 de julio 2026
+#descripcion: Este programa tira una moneda 20 veces o hasta que se cumpla condicion de 3 caras o 3 cruces consecutivas en una lista.
+
+import random              #libreria con una funcion aleatoria
+
+#1er bloque de codigo
+print("1. usar ciclo WHILE (hasta que se hagan 3 cruces o tres caras consecutivas)")
+print("2. usar un ciclo FOR (tirar una moneda 20 veces)")
+opcion = int (input("Elija una opcion: "))
+
+historial = []                           #lista de los resultados que se han tirado con la moneda
+caras_seguidas = 0                    #variable de caras seguidas
+cruces_seguidos = 0                   #variable de cruces seguidas
+
+#2do bloque ciclo WHILE
+if opcion == 1:
+  print("--------- este codigo se ejecuta con ciclo WHILE opcion 1---------")
+  tiros = 0
+  while caras_seguidas < 3 and cruces_seguidos < 3:
+    tiros += 1
+    resultado = random.choice(["cara", "cruz"])
+    historial.append(resultado)
+    print("tiro", tiros, "salio:", resultado, "(historial:", historial)
+    if resultado == "cara":
+      caras_seguidas += 1
+      cruces_seguidos = 0
+    else:
+      caras_seguidas = 0
+      cruces_seguidos += 1
+
+#Bloque 3 ciclo FOR
+if opcion == 2:
+  print("--------- este codigo se ejecuta con ciclo FOR opcion 2---------")
+  for tiro in range(20):
+    resultado = random.choice(["cara", "cruz"])
+    historial.append(resultado)
+    print("tiro", tiro + 1, "salio:", resultado, "(historial:", historial,)
+    if resultado == "cara":
+      caras_seguidas += 1
+      cruces_seguidos = 0
+    else:
+      caras_seguidas = 0
+      cruces_seguidos += 1
+#Bloque 4. totalizacion de caras y cruces
+total_caras = historial.count("cara")
+total_cruces = historial.count("cruz")
+print("\n*****resultados*****")
+print("Historial final", historial)
+print("Total de caras:", total_caras)
+print("Total de cruces:", total_cruces)
