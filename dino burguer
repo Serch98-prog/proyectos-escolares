@@ -1,0 +1,40 @@
+
+#guardar en excel
+   # GUARDAR EN EXCEL
+  wb = openpyxl.Workbook()
+  ws = wb.active
+  ws.title = "Pedido"
+
+  # Encabezados básicos
+  ws.append(["Producto", "Precio"])
+
+  # Agregar cada producto de la lista al Excel
+  for p in pedido:
+      ws.append([p["nombre"], p["precio"]])
+
+  # Filas de cálculos al final de la tabla
+  ws.append([])
+  ws.append(["Subtotal", total])
+  ws.append(["IVA (16%)", iva])
+  ws.append(["TOTAL", total_con_iva])
+
+  archivo = "Pedido_Dino.xlsx"
+  wb.save(archivo)
+  print("\n📦 Archivo", archivo, "guardado con éxito.")
+
+  # LEER EL EXCEL
+  print("\n📂 Leyendo datos del archivo Excel generado:")
+  wb_leido = openpyxl.load_workbook(archivo)
+  ws_leida = wb_leido.active
+
+  for fila in ws_leida.iter_rows(values_only=True):
+      if fila[0] is not None: # Evita imprimir filas totalmente vacías
+          print("->", fila)
+else:
+    print("\nNo se registraron productos en el pedido.")
+
+#IMPRESION DE LA COMPRA
+print("\n ---- RESUMEN DE TU COMPRA ----")
+print("\nCliente: ", cliente)
+print("total a pagar: $", total)
+print("gracias por comer en Dino Burguers")
