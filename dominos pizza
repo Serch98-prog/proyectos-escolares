@@ -1,0 +1,72 @@
+#avanze de proyecto final dominos pizza
+#sergio arredondo ibarra
+#fecha: 19 junio 2026
+#version: 1.0 dominos pizza
+#descripcion: Sistema de punto de ventas para dominos pizza que registra multiples clientes como control de ventas
+
+#iniciamos con la definicion de una funcion que no regresa valor. reporte final
+def reporte_final(ventas_totales):
+    print("\n------------------------------------------------------")
+    print("              domino´s pizza - reporte final de ventas")
+    print("-------------------------------------------------------")
+    print("CLIENTE        | TELEFONO       | ESPECIALIDAD DE PIZZA          | TOTAL")
+    print("-------------------------------------------------------")
+    total=0
+
+    #ciclo for de recorrido de ventas
+    for v in ventas_totales:
+        print(v[0], "\t|", v[1], "\t|", v[2], "\t| $", v[3])
+        total_dia = total_dia + v[3]
+
+    print("-------------------------------------------------------")
+    print("TOTAL RECAUDADO DEL DIA:", total)
+    print("-------------------------------------------------------")
+    print("Gracias por utilizar dominos pizza")
+    print("-------------------------------------------------------")
+
+#--> AQUI INICIA EL PROGRAMA PRINCIPAL }. NOTA: checar indentacion
+print("---- sistema de pedidos dominos pizza -------")
+print("---- elaborado por sergio arredondo ibarra------")
+
+ventas_totales=[]        #aqui se guarda las ventas del dia
+opcion = "si"            #esta es una variable de control para el ciclo while
+
+#catalogo de pizzas
+pizzas = [
+    ["Pizza Pepperoni", 149],
+    ["Pizza Hawaiana", 149],
+    ["Pizza Mexicana", 199],
+    ["Pizza Cuatro Quesos", 219],
+    ["Pizza Extravaganzza", 229],
+    ["Pizza de Sartén Pepperoni", 179],
+    ["Pizza Veggie", 199],
+    ["Pizza Pollo BBQ", 219]
+]
+
+#ciclo while de registro de ventas
+while opcion == "si":
+    print("\n================================")
+    print("------ NUEVA VENTA - RESGISTRO DE PEDIDO -------")
+    print("================================")
+
+    #datos de entrada
+    print("\n--- MENÚ DE ESPECIALIDADES ---")
+    print("1. Pepperoni-$149\n2. Hawaiana-$149\n3. Mexicana-$199\n4. Cuatro Quesos-$219")
+    print("5. Extravaganzza-$229\n6. Sartén Pepperoni-$179\n7. Veggie-$199\n8. Pollo BBQ-$219")
+    cliente=input("Ingrese el nombre del cliente")
+    telefono=input("Ingrese el telefono celular del cliente")
+    tipo_de_pizza = input("Ingrese el número de la pizza seleccionada: ")
+    cantidad = int(input("Ingrese la cantidad de pizzas a ordenar: "))
+    subtotal = pizzas[int(tipo_de_pizza) - 1][1] * cantidad
+    cupon=input("(el cliente tiene cupon? (si/no)")
+    if cupon=="si":
+        descuento=subtotal*0.10
+        total=subtotal-descuento
+        print("subtotal; $", subtotal)
+        print("descuento: $", descuento)
+        print("total: $", total)
+    else:
+        total=subtotal
+        print("total: $", total, "no hay descuento")
+    print("total a cobrar: $", total)
+    ventas_totales.append([cliente,telefono,tipo_de_pizza, total])
