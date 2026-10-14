@@ -1,0 +1,69 @@
+#cafe andromeda - actividad 2(version 2.0)
+#sergio arredondo ibarra
+#fecha: 16 de junio
+#descripcion: Sistema de una cafeteria que tiene un menu en una funcion que no regresa valor, ciclos y decisiones para validar la venta
+
+#escribir una funcion que no regrese valor
+def mostrar_menu():
+    print("\n=============== menu disponible============")
+    print("1. cafe americano --- $35.00")
+    print("2. capuccino --- $50.00")
+    print("3. moka helado --- $60.00")
+    print("4. latte vainilla --- $55.00")
+    print("5. espresso doble --- $40.00")
+    print("6. te verde matcha --- $65.00")
+    print("7. rebanada pastel chocolate --- $45.00")
+    print("8. croissant de jamon y queso --- $52.00")
+    print("==========================================")
+#------------------------------- termina bloque de funciones
+#------------------------------- empieza el programa principal
+
+print("============== bienvenido a cafe andromeda ==============")
+
+mostrar_menu()             #funcion que imprime el menu
+total_acumulado=0          #inicializar en 0
+continuar_pedido = "si"    #controla el ciclo de venta
+
+#aqui empieza el ciclo while
+while continuar_pedido == "si":
+     mostrar_menu()
+     opcion = int(input("ingrese la opcion que desea: "))
+     if opcion == 1:
+        producto = "cafe americano"
+        precio_unitario = 35.00
+     elif opcion == 2:
+        producto = "capuccino"
+        precio_unitario = 50.00
+     elif opcion == 3:
+        producto = "moka helado"
+        precio_unitario = 60.00
+     elif opcion == 4:
+        producto = "latte vainilla"
+        precio_unitario = 55.00
+     elif opcion == 5:
+        producto = "espresso doble"
+        precio_unitario = 40.00
+     elif opcion == 6:
+        producto = "te verde matcha"
+        precio_unitario = 65.00
+     elif opcion == 7:
+        producto = "rebanada pastel chocolate"
+        precio_unitario = 45.00
+     elif opcion == 8:
+        producto = "croissant de jamon y queso"
+        precio_unitario = 52.00
+     else:
+        print("opcion no valida")
+
+     print("--> Ha seleccionado", producto, "($", precio_unitario, ")")
+     cantidad = int(input("ingrese la cantidad de unidades"))
+
+    #calculos
+     subtotal = precio_unitario * cantidad
+     total_acumulado += subtotal
+     print("subtotal: $", subtotal)
+     print("total acumulado: $", total_acumulado)
+
+     continuar_pedido = input("desea agregar otro producto? (si/no): ")
+
+print("gracias por su compra. hasta luego!")
