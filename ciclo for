@@ -1,0 +1,21 @@
+#programa 7. ciclo for
+#autor: Sergio Arredondo Ibarra
+#fecha: 19 junio 2026
+#descripcion: este programa utiliza un ciclo for cuando no se sabe exactamente el numero de veces que se repetira una condicion. lanzamiento de una moneda hasta que salgan 3 caras consecutivas
+
+import random         #libreria para utilizar funciones aleatorias
+
+print("-------------------------------------- LANZAMIENTO MONEDAS CICLO WHILE-----------------------------------")
+print("----------------------sergio arredondo ibarra--------------------------")
+
+resultados=[]           #iniciamos una estructura de una lista vacia
+
+#el bucle FOR
+for i in range(1000):
+    lanzamiento = random.choice (["cara","cruz"])
+    resultados.append(lanzamiento)
+    print(resultados)
+print(resultados)                                       #escalera de resultados
+print("total de lanzamientos", len(resultados))
+print("total de caras", resultados.count("cara"))
+print("total de cruces", resultados.count("cruz"))
