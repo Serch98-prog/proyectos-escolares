@@ -1,0 +1,132 @@
+import gradio as gr
+#avanze de proyecto final dominos pizza
+#sergio arredondo ibarra
+#fecha: 19 junio 2026
+#version: 1.0 dominos pizza
+#descripcion: Sistema de punto de ventas para dominos pizza que registra multiples clientes como control de ventas
+
+# Catálogo de pizzas
+pizzas = {
+    "Pizza Pepperoni": 149,
+    "Pizza Hawaiana": 149,
+    "Pizza Mexicana": 199,
+    "Pizza Cuatro Quesos": 219,
+    "Pizza Extravaganzza": 229,
+    "Pizza de Sartén Pepperoni": 179,
+    "Pizza Veggie": 199,
+    "Pizza Pollo BBQ": 219
+}
+
+ventas_totales = []
+
+
+def registrar_pedido(cliente, telefono, pizza, cantidad, cupon):
+
+    precio = pizzas[pizza]
+    subtotal = precio * cantidad
+
+    if cupon == "Sí":
+        descuento = subtotal * 0.10
+    else:
+        descuento = 0
+
+    total = subtotal - descuento
+
+    ventas_totales.append([
+        cliente,
+        telefono,
+        pizza,
+        total
+    ])
+
+    return (
+        f"""
+Pedido registrado correctamente.
+
+Cliente: {cliente}
+Pizza: {pizza}
+Cantidad: {cantidad}
+
+Subtotal: ${subtotal:.2f}
+Descuento: ${descuento:.2f}
+Total: ${total:.2f}
+"""
+    )
+
+
+def reporte():
+
+    if len(ventas_totales) == 0:
+        return "No hay ventas registradas."
+
+    texto = "REPORTE FINAL DE VENTAS\n\n"
+    texto += "Cliente\t\tTeléfono\tPizza\t\tTotal\n"
+    texto += "-" * 60 + "\n"
+
+    total_dia = 0
+
+    for venta in ventas_totales:
+        texto += f"{venta[0]}\t{venta[1]}\t{venta[2]}\t${venta[3]:.2f}\n"
+        total_dia += venta[3]
+
+    texto += "-" * 60 + "\n"
+    texto += f"TOTAL DEL DÍA: ${total_dia:.2f}"
+
+    return texto
+
+
+with gr.Blocks(title="Domino's Pizza") as demo:
+
+    gr.Markdown("# 🍕 Sistema de Ventas Domino's Pizza")
+
+    cliente = gr.Textbox(label="Nombre del cliente")
+    telefono = gr.Textbox(label="Teléfono")
+
+    pizza = gr.Dropdown(
+        choices=list(pizzas.keys()),
+        label="Especialidad"
+    )
+
+    cantidad = gr.Number(
+        value=1,
+        precision=0,
+        label="Cantidad"
+    )
+
+    cupon = gr.Radio(
+        ["Sí", "No"],
+        value="No",
+        label="¿Tiene cupón?"
+    )
+
+    salida = gr.Textbox(
+        lines=8,
+        label="Resultado"
+    )
+
+    btn_registrar = gr.Button("Registrar Pedido")
+    btn_reporte = gr.Button("Ver Reporte Final")
+
+    reporte_txt = gr.Textbox(
+        lines=15,
+        label="Reporte de Ventas"
+    )
+
+    btn_registrar.click(
+        registrar_pedido,
+        inputs=[
+            cliente,
+            telefono,
+            pizza,
+            cantidad,
+            cupon
+        ],
+        outputs=salida
+    )
+
+    btn_reporte.click(
+        reporte,
+        outputs=reporte_txt
+    )
+
+demo.launch()
