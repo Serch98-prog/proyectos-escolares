@@ -1,0 +1,77 @@
+import openpyxl
+import pandas as pd
+
+#nuevo: espacio de funcion
+def guardar_en_excel(ventas):
+    if len(ventas) > 0:
+        print("\n guardando registro de pedidos excel.....")
+        df_ventas = pd.DataFrame(ventas)       #lectura de la tabla del archivo de ventas
+        nombre_archivo = "registro_pedidos_dominos.xlsx"
+        df_ventas.to_excel(nombre_archivo, index=False, sheet_name="pedidos Diarios")
+    else:
+        print("no hay registros para guardar")
+
+#programa principal
+print("---sistema de pedidos de dominos pizza---")
+print("----------------------------------------")
+
+# 1. EL MENÚ EN UN DICCIONARIO LLAMADO "pizzas"
+pizzas = {
+    "PEP": ["Pizza Pepperoni", 149],
+    "HAW": ["Pizza Hawaiana", 149],
+    "MEX": ["Pizza Mexicana", 199],
+    "QUE": ["Pizza Cuatro Quesos", 219],
+    "EXT": ["Pizza Extravaganza", 229],
+    "SAR": ["Pizza de Sartén Pepperoni", 179],
+    "VEG": ["Pizza Veggie", 199],
+    "BBQ": ["Pizza Pollo BBQ", 219]
+}
+print("--------------------------------------------------------")
+# 2. VENTAS COMO LISTA "ventas"
+ventas = []                   #todas las listas van con corchetes
+opcion = "si"
+
+while opcion == "si":
+    # INDENTACIÓN VERIFICAR Y MOSTRAR EL MENÚ DEL DICCIONARIO PIZZAS CON (.items)
+    print(f"\n{'CÓDIGO':^8} | {'DESCRIPCIÓN':<27} | {'PRECIO':^9}")
+    print("--------------------------------------------------------")
+
+    for id, datos in pizzas.items():
+        print(f"{id:^8} | {datos[0]:<27} | ${datos[1]:>4}")
+
+    print("--------------------------------------------------------")
+
+    cliente = input("\nNombre del cliente: ")
+    codigo = input("ingrese el código de la pizza: ").upper()
+    if codigo in pizzas:
+        cantidad = int(input("ingrese la cantidad de pizzas: "))
+
+        #CALCULOS
+        precio_unitario = pizzas[codigo][1]
+        total_pago = cantidad * precio_unitario
+        print(f"💰 Total a pagar por {cliente}: $ {total_pago}")
+
+        #ALMACENAMIENTO DEL PEDIDO EN VENTAS
+        ventas.append({
+            "Cliente": cliente,
+            "Código": codigo,
+            "Descripción": pizzas[codigo][0],
+            "Cantidad": cantidad,
+            "Precio Unitario": precio_unitario,
+            "Total a Pagar": total_pago
+        })
+
+    opcion = input("\n Desea registrar otro pedido? (si/no): ")
+
+#simulacion de boton administrativo
+print("\n-----------------------------------------------------")
+print("🚨 MENÚ DE ADMINISTRACIÓN DE VENTAS DOMINO'S")
+print("-----------------------------------------------------")
+boton_generar = input("¿Generar el archivo final de ventas en Excel? (si/no): ")
+
+if boton_generar.lower() == "si":
+    guardar_en_excel(ventas)
+else:
+    print("\n[Operación Cancelada] No se exportaron los datos a Excel.")
+
+print("\nEl sistema se ha cerrado correctamente. ¡Buen provecho!")
