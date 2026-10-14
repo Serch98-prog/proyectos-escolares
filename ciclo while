@@ -1,0 +1,22 @@
+#programa 6. ciclo while
+#autor: Sergio Arredondo Ibarra
+#fecha: 19 junio 2026
+#descripcion: este programa utiliza un ciclo while cuando no se sabe exactamente el numero de veces que se repetira una condicion. lanzamiento de una moneda hasta que salgan 3 caras consecutivas
+
+import random         #libreria para utilizar funciones aleatorias
+
+print("-------------------------------------- LANZAMIENTO MONEDAS CICLO WHILE-----------------------------------")
+print("----------------------sergio arredondo ibarra--------------------------")
+
+resultados=[]           #iniciamos una estructura de una lista vacia
+
+#el bucle while
+while resultados[-5:] != ["cara", "cara", "cara", "cara", "cara"]:
+      lanzamiento = random.choice(["cara", "cruz"])          #Aqui defino las dos opciones aleatorias
+      print(resultados)                                      #aqui imprime la escalera de resultados
+      resultados.append(lanzamiento)                         #aqui me guarda los resultados de los lanzamientos
+
+print(resultados)
+print("EXITO: se alcanzaron cinco caras consecutivas")
+print("total de lanzamientos", len(resultados))
+
