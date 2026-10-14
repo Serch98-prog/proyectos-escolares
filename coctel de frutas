@@ -1,0 +1,56 @@
+#Actividad 4A. Coctel de frutas (listas)
+#autor:sergio arredondo ibarra
+#fecha: 02 de julio 2026
+#descripcion: este programa utiliza listas para realizar funciones relacionadas con un coctel de frutas
+
+#programa principal inicia
+coctel_de_frutas = ["manzana","platano", "fresa", "melon", "sandia"]
+continuar = True
+
+print("simulador de coctel de frutas")
+print("-------- menu frutal --------")
+print("que deseas hacer con el menu frutal?")
+print("0. imprimir menu frutal")
+print("1. saber cuantas frutas tiene el coctel (.len)")
+print("2. agregar otra fruta al coctel (.append)")
+print("3. insertar una fruta en una posicion del coctel (.insert)")
+print("4. eliminar una fruta del coctel (.pop)")
+print("5. buscar una fruta en el coctel (.index)")
+print("6. contar cuantas veces se repite una fruta en el coctel (.count)")
+print("7. ordenar las frutas en el coctel (.sort)")
+print("8. invertir el orden de las frutas en el coctel (.reverse)")
+print("9. limpiar el coctel de frutas (.clear)")
+
+while continuar:
+  opcion = int(input("ingrese una opcion: "))
+  if opcion == 0:
+    print("el menu frutal es: ", coctel_de_frutas)
+  elif opcion == 1:
+    print("el coctel tiene: ",len(coctel_de_frutas), " frutas")
+  elif opcion == 2:
+    coctel_de_frutas.append(input("ingrese una fruta: "))
+  elif opcion == 3:
+    coctel_de_frutas.insert(int(input("ingrese una posicion: ")), input("ingrese una fruta: "))
+  elif opcion == 4:
+    coctel_de_frutas.pop(int(input("ingrese una posicion: ")))
+    print("el coctel es: ", coctel_de_frutas)
+  elif opcion == 5:
+    print("la fruta se encuentra en la posicion: ", 1+ coctel_de_frutas.index(input("ingrese una fruta: ")))
+  elif opcion == 6:
+    print("la fruta se repite: ", coctel_de_frutas.count(input("ingrese una fruta: ")))
+  elif opcion == 7:
+    coctel_de_frutas.sort()
+    print("el coctel es: ", coctel_de_frutas)
+  elif opcion == 8:
+    coctel_de_frutas.reverse()
+    print("el coctel es: ", coctel_de_frutas)
+  elif opcion == 9:
+    coctel_de_frutas.clear()
+    print("el coctel esta vacio")
+  else:
+   print("opcion invalida")
+
+  respuesta = input("desea detener el programa? (si/no)")
+  if respuesta == "si":
+    continuar = false
+print("programa terminado")
