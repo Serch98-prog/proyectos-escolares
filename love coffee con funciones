@@ -1,0 +1,55 @@
+#actividad 3. love coffee con funciones
+#autor: sergio arredondo ibarra
+#fecha: 23 de junio del 2026
+#descripcion: este programa presenta 4 funicones a procesos clave de una cafeteria
+
+#------------------------ bloque funciones inicia
+def bienvenida():     #1iera funcion
+  print("\n----------------------------------------------")
+  print("Bienvenido a Love Coffee")
+  print("------------------------------------------------")
+
+def mostrarmenu():   #2da funcion
+  print("---------- NUESTRO MENU ENAMORADO --------------")
+  print("1. cafe clasico------- $40")
+  print("2. capuccino amor ---- $50")
+  print("3. frappe corazon ---- $60")
+  print("4. pastel red velvet - $55")
+  print("------------------------------------------------")
+def obtener_precio(opcion):   #3era funcon
+  global precio
+  if opcion== 1:
+    precio=40
+  elif opcion== 2:
+    precio=50
+  elif opcion== 3:
+    precio=60
+  elif opcion== 4:
+    precio=55
+  else:
+    precio=0
+    print("opcion no valida")
+  return precio
+
+def calculototal(): #4ta funcion
+  subtotal=precio*cantidad
+  if descuento=="s":
+     total=subtotal-(subtotal*0.15)
+  else:
+    total=subtotal
+  print("subtotal: $:", subtotal)
+  print("total a pagar: $:", total)
+
+#------------------------ bloque funciones cierre
+
+#------------------------ programa principal
+print("============================ LOVE COFFEE ============================")
+print("=======================================================================")
+bienvenida()                     #da bienvenida al usuario
+mostrarmenu()                    #muestra catalogo de productos
+opcion=int(input("selecciona el numero del producto que deseas del 1 al 4"))
+cantidad=int(input("ingresa la cantidad de productos que deseas"))
+descuento=(input("tienes un codigo de descuento? (si-no): ")).lower()
+
+precio= obtener_precio(opcion)            #obtienes precios de productos
+calculototal()                   #da el total de la orden
